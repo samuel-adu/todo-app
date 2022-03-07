@@ -1,13 +1,135 @@
-body {
+:root {
+  /* ### Primary */
+
+  --clr-accent: hsl(220, 98%, 61%);
+  --gradient: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* ### Neutral */
+
+  /* ### Light Theme */
+
+  --bg-primary-light: hsl(236, 33%, 92%);
+  --bg-secondary-light: hsl(0, 0%, 98%);
+  --clr-primary-light-100: hsl(233, 11%, 84%);
+  --clr-primary-light-200: hsl(236, 9%, 61%);
+  --clr-primary-light-300: hsl(235, 19%, 35%);
+
+  /* ### Dark Theme */
+  --bg-primary-dark: hsl(235, 21%, 11%);
+  --bg-secondary-dark: hsl(235, 24%, 19%);
+  --clr-primary: hsl(234, 39%, 85%);
+  --clr-hover: hsl(236, 33%, 92%);
+  --clr-primary-dark-100: hsl(234, 11%, 52%);
+  --clr-primary-dark-200: hsl(233, 14%, 35%);
+  --clr-primary-dark-300: hsl(237, 14%, 26%);
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 1.125rem;
+  /* background-image: url("images/bg-mobile-light.jpg"); */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--bg-primary-light);
+  color: var(--clr-primary-light-200);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* || Base styles ================================================== */
+img {
+  max-width: 100%;
+}
+
+.container {
+  padding-inline: 2rem;
+}
+
+.navbar {
+  display: flex;
+  padding-block: 2rem;
+}
+
+/* || ======================================================= */
+.logo {
+  margin-right: auto;
+  text-transform: uppercase;
+  color: white;
+}
+
+.checkbox {
+  margin-right: 1rem;
+}
+
+.todo-form {
+  background-color: var(--bg-secondary-light);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary-light);
+  color: var(--clr-primary-light-300);
+  padding: 1em;
+}
+
+.todo-item .completed {
+  text-decoration: line-through;
+  color: var(--clr-primary-light-100);
+}
+
+.todo-item p {
+  margin-right: auto;
+}
+
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--bg-secondary-light);
+  margin-top: 1rem;
+}
+
+/* || ======================================================== */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Pick up groceries
+
+
+
+Read for 1 hour
+
+
+
+10 minutes meditation
+
+
+
+Jog around the park 3x
+
+
+
+Complete Todo App on Frontend Mentor */

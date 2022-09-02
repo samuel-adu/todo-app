@@ -1,67 +1,79 @@
 import React, { useState } from "react";
-import moon from "./images/icon-moon.svg";
-import sun from "./images/icon-sun.svg";
-import cross from "./images/icon-cross.svg";
-import "./index.css";
+import { nanoid } from "nanoid";
+import Header from "./components/Header";
+import Form from "./components/Form";
+import FilterButtons from "./components/FilterButtons";
+import todosData from "./todosData";
+import TodoItem from "./components/TodoItem";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [newTodo, setNewTodo] = useState({ id: 1, text: "", completed: false });
-  const [todosList, setTodosList] = useState([]);
+  const [todoList, setTodoList] = useState(todosData);
+  console.log(todoList);
 
-  function TodoItem(props) {
-    return (
-      <div className="todo-item">
-        <input type="checkbox" />
-        <p>{props.text}</p>
-        <img src={cross} alt="cross" width="15px" height="15px" />
-      </div>
+  function addNewTodo(text) {
+    const todo = { id: nanoid(), task: text, completed: false };
+    setTodoList((prevTodoList) => [todo, ...prevTodoList]);
+  }
+
+  function toggleTaskCompleted(id) {
+    setTodoList((prevTodoList) => {
+      return prevTodoList.map((todo) => {
+        return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
+      });
+    });
+  }
+
+  function deleteTask(id) {
+    setTodoList((prevTodoList) =>
+      prevTodoList.filter((todoItem) => {
+        return todoItem.id !== id;
+      })
     );
   }
 
-  function handleChange(event) {
-    setNewTodo((prevTodo) => ({ ...prevTodo, text: event.target.value }));
+  function deleteCompleted() {
+    setTodoList((prevTodoList) =>
+      prevTodoList.filter((todoItem) => {
+        return !todoItem.completed;
+      })
+    );
   }
 
-  function addNewTodo(event) {
-    event.preventDefault();
-    setTodosList((prevtodosList) => [newTodo, ...prevtodosList]);
-    setNewTodo((prevTodo) => ({ ...prevTodo, text: "" }));
-  }
-
-  const todoItem = todosList.map((todo) => <TodoItem text={todo.text} />);
+  const todoElement = todoList.map((todo) => {
+    return (
+      <TodoItem
+        key={todo.id}
+        id={todo.id}
+        completed={todo.completed}
+        text={todo.task}
+        handleChange={toggleTaskCompleted}
+        handleDelete={deleteTask}
+      />
+    );
+  });
 
   return (
     <div className="container">
-      <header className="header navbar">
-        <h1 className="logo">Todo</h1>
-        <img
-          src={darkMode ? sun : moon}
-          alt="mode icon"
-          className="mode-icon"
-          onClick={() => setDarkMode((prevDarkMode) => !prevDarkMode)}
-        />
-      </header>
+      <Header />
 
-      <main>
-        <form onSubmit={addNewTodo}>
-          <input
-            type="text"
-            name="todo"
-            value={newTodo.text}
-            onChange={handleChange}
-            placeholder="Create a new todo..."
-            className="todo__input"
-          />
-        </form>
+      <Form addNewTodo={addNewTodo} />
 
-        <div className="todo-list">
-          {todoItem}
+      <div className="todo__list">
+        {todoElement}
 
-          <p>{todosList.length} items left</p>
-          <p>clear completed</p>
-        </div>
-      </main>
+        {todoList.length > 0 && (
+          <div className="todo__footer">
+            <p>
+              {todoList.length} item{todoList.length > 1 ? "s" : ""} left
+            </p>
+            <button className="btn" onClick={deleteCompleted}>
+              Clear Completed
+            </button>
+          </div>
+        )}
+      </div>
+
+      {todoList.length > 0 && <FilterButtons />}
     </div>
   );
 }

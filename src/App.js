@@ -4,53 +4,39 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import FilterButtons from "./components/FilterButtons";
 import todosData from "./todosData";
-import TodoItem from "./components/TodoItem";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const [todoList, setTodoList] = useState(todosData);
-  console.log(todoList);
+  const [todos, setTodos] = useState(todosData);
 
   function addNewTodo(text) {
     const todo = { id: nanoid(), task: text, completed: false };
-    setTodoList((prevTodoList) => [todo, ...prevTodoList]);
+    setTodos((prevTodos) => [todo, ...prevTodos]);
   }
 
   function toggleTaskCompleted(id) {
-    setTodoList((prevTodoList) => {
-      return prevTodoList.map((todo) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
         return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
       });
     });
   }
 
   function deleteTask(id) {
-    setTodoList((prevTodoList) =>
-      prevTodoList.filter((todoItem) => {
-        return todoItem.id !== id;
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => {
+        return todo.id !== id;
       })
     );
   }
 
-  function deleteCompleted() {
-    setTodoList((prevTodoList) =>
-      prevTodoList.filter((todoItem) => {
-        return !todoItem.completed;
+  function deleteAllCompletedTask() {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => {
+        return !todo.completed;
       })
     );
   }
-
-  const todoElement = todoList.map((todo) => {
-    return (
-      <TodoItem
-        key={todo.id}
-        id={todo.id}
-        completed={todo.completed}
-        text={todo.task}
-        handleChange={toggleTaskCompleted}
-        handleDelete={deleteTask}
-      />
-    );
-  });
 
   return (
     <div className="container">
@@ -58,22 +44,14 @@ function App() {
 
       <Form addNewTodo={addNewTodo} />
 
-      <div className="todo__list">
-        {todoElement}
+      <TodoList
+        todos={todos}
+        deleteAllCompletedTask={deleteAllCompletedTask}
+        deleteTask={deleteTask}
+        toggleTaskCompleted={toggleTaskCompleted}
+      />
 
-        {todoList.length > 0 && (
-          <div className="todo__footer">
-            <p>
-              {todoList.length} item{todoList.length > 1 ? "s" : ""} left
-            </p>
-            <button className="btn" onClick={deleteCompleted}>
-              Clear Completed
-            </button>
-          </div>
-        )}
-      </div>
-
-      {todoList.length > 0 && <FilterButtons />}
+      {todos.length > 0 && <FilterButtons />}
     </div>
   );
 }

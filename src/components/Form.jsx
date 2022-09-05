@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 function Form(props) {
-  const [task, setTask] = useState("");
+  const [inputText, setInputText] = useState("");
 
   function handleChange(event) {
-    setTask(event.target.value);
+    setInputText(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.addNewTodo(task);
-    setTask("");
+    props.addNewTodo(inputText);
+    setInputText("");
   }
 
   return (
@@ -20,7 +20,7 @@ function Form(props) {
         name="task"
         placeholder="Create a new todo..."
         className="todo__input"
-        value={task}
+        value={inputText}
         onChange={handleChange}
       />
     </form>

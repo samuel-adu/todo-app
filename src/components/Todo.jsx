@@ -1,6 +1,6 @@
 import cross from "../images/icon-cross.svg";
 
-function TodoItem(props) {
+function Todo(props) {
   return (
     <div className="todo-item">
       <input
@@ -9,7 +9,7 @@ function TodoItem(props) {
         checked={props.completed}
         onChange={() => props.handleChange(props.id)}
       />
-      <label htmlFor={props.id}>{props.text}</label>
+      <label htmlFor={props.id}>{props.task}</label>
       <img
         src={cross}
         alt="cross"
@@ -21,4 +21,4 @@ function TodoItem(props) {
   );
 }
 
-export default TodoItem;
+export default Todo;

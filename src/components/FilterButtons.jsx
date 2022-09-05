@@ -1,15 +1,11 @@
-function FilterButtons(props) {
-  return (
-    <div className="filter-buttons">
-      <button className="btn">All</button>
-      <button className="btn" onClick={props.filterActive}>
-        Active
-      </button>
-      <button className="btn" onClick={props.filterCompleted}>
-        Completed
-      </button>
-    </div>
-  );
+function FilterButtons() {
+  const filters = ["All", "Active", "Complete"];
+  const filterButtons = filters.map((filter) => (
+    <button key={filter} className="btn">
+      {filter}
+    </button>
+  ));
+  return <div className="filter-buttons">{filterButtons}</div>;
 }
 
 export default FilterButtons;

@@ -1,67 +1,57 @@
 import React, { useState } from "react";
-import moon from "./images/icon-moon.svg";
-import sun from "./images/icon-sun.svg";
-import cross from "./images/icon-cross.svg";
-import "./index.css";
+import { nanoid } from "nanoid";
+import Header from "./components/Header";
+import Form from "./components/Form";
+import FilterButtons from "./components/FilterButtons";
+import todosData from "./todosData";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [newTodo, setNewTodo] = useState({ id: 1, text: "", completed: false });
-  const [todosList, setTodosList] = useState([]);
+  const [todos, setTodos] = useState(todosData);
 
-  function TodoItem(props) {
-    return (
-      <div className="todo-item">
-        <input type="checkbox" />
-        <p>{props.text}</p>
-        <img src={cross} alt="cross" width="15px" height="15px" />
-      </div>
+  function addNewTodo(text) {
+    const todo = { id: nanoid(), task: text, completed: false };
+    setTodos((prevTodos) => [todo, ...prevTodos]);
+  }
+
+  function toggleTaskCompleted(id) {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
+      });
+    });
+  }
+
+  function deleteTask(id) {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => {
+        return todo.id !== id;
+      })
     );
   }
 
-  function handleChange(event) {
-    setNewTodo((prevTodo) => ({ ...prevTodo, text: event.target.value }));
+  function deleteAllCompletedTask() {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => {
+        return !todo.completed;
+      })
+    );
   }
-
-  function addNewTodo(event) {
-    event.preventDefault();
-    setTodosList((prevtodosList) => [newTodo, ...prevtodosList]);
-    setNewTodo((prevTodo) => ({ ...prevTodo, text: "" }));
-  }
-
-  const todoItem = todosList.map((todo) => <TodoItem text={todo.text} />);
 
   return (
     <div className="container">
-      <header className="header navbar">
-        <h1 className="logo">Todo</h1>
-        <img
-          src={darkMode ? sun : moon}
-          alt="mode icon"
-          className="mode-icon"
-          onClick={() => setDarkMode((prevDarkMode) => !prevDarkMode)}
-        />
-      </header>
+      <Header />
 
-      <main>
-        <form onSubmit={addNewTodo}>
-          <input
-            type="text"
-            name="todo"
-            value={newTodo.text}
-            onChange={handleChange}
-            placeholder="Create a new todo..."
-            className="todo__input"
-          />
-        </form>
+      <Form addNewTodo={addNewTodo} />
 
-        <div className="todo-list">
-          {todoItem}
+      <TodoList
+        todos={todos}
+        deleteAllCompletedTask={deleteAllCompletedTask}
+        deleteTask={deleteTask}
+        toggleTaskCompleted={toggleTaskCompleted}
+      />
 
-          <p>{todosList.length} items left</p>
-          <p>clear completed</p>
-        </div>
-      </main>
+      {todos.length > 0 && <FilterButtons />}
     </div>
   );
 }

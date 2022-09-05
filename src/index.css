@@ -47,10 +47,22 @@ img {
   max-width: 100%;
 }
 
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  background: none;
+  border: 0;
+}
+
 .container {
   padding-inline: 2rem;
   max-width: 550px;
   margin: 0 auto;
+}
+
+header {
+  padding-block: 1em;
 }
 
 .navbar {
@@ -61,7 +73,7 @@ img {
 .logo {
   margin-right: auto;
   text-transform: uppercase;
-  /* color: white; */
+  color: var(--bg-secondary-light);
 }
 
 .mode-icon {
@@ -74,16 +86,32 @@ img {
   margin-right: 1rem;
 } */
 
+form {
+  margin-bottom: 1em;
+}
+
 .todo__input {
   background-color: var(--bg-secondary-light);
   padding: 1rem;
-  margin-bottom: 1rem;
   border: 0;
   border-radius: 5px;
   width: 100%;
 }
 
-.todo-list {
+label {
+  margin-right: auto;
+  margin-left: 1em;
+}
+
+input[type="checkbox"] {
+  border-radius: 50%;
+}
+
+.todo__input:focus {
+  outline: none;
+}
+
+.todo__list {
   background: var(--bg-secondary-light);
   border-radius: 5px;
 }
@@ -93,27 +121,34 @@ img {
   align-items: center;
   color: var(--clr-primary-light-300);
   padding: 1em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--clr-primary-light-100);
 }
 
-/* .todo-item .completed {
+.todo-item .completed {
   text-decoration: line-through;
   color: var(--clr-primary-light-100);
-} */
-
-.todo-item p {
-  margin-right: auto;
-  margin-left: 1em;
 }
 
-/* .todo-footer {
+.todo__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1em;
   background-color: var(--bg-secondary-light);
-  margin-top: 1rem;
-} */
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.filter-buttons {
+  background-color: var(--bg-secondary-light);
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 5px;
+}
 
 /* || ======================================================== */
 

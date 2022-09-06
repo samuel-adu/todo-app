@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import FilterButtons from "./components/FilterButtons";
+import FilterButton from "./components/FilterButton";
 import todosData from "./todosData";
 import TodoList from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState(todosData);
+  const [filter, setFilter] = useState("All");
 
   function addNewTodo(text) {
     const todo = { id: nanoid(), task: text, completed: false };
@@ -49,9 +50,10 @@ function App() {
         deleteAllCompletedTask={deleteAllCompletedTask}
         deleteTask={deleteTask}
         toggleTaskCompleted={toggleTaskCompleted}
+        filter={filter}
       />
 
-      {todos.length > 0 && <FilterButtons />}
+      {todos.length > 0 && <FilterButton setFilter={setFilter} />}
     </div>
   );
 }

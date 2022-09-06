@@ -1,36 +1,41 @@
 import Todo from "./Todo";
 
-function TodoList({
-  todos,
-  toggleTaskCompleted,
-  deleteTask,
-  deleteAllCompletedTask,
-}) {
-  const numOfActiveTask = todos.filter((task) => !task.completed).length;
-  const item = numOfActiveTask > 1 ? "items" : "item";
+function TodoList(props) {
+  function filterTask(filterName) {
+    if (filterName === "Active") {
+      return (todo) => !todo.completed;
+    } else if (filterName === "Complete") {
+      return (todo) => todo.completed;
+    } else {
+      return () => true;
+    }
+  }
 
-  const todosList = todos.map((todo) => {
+  const todosList = props.todos.filter(filterTask(props.filter)).map((todo) => {
     return (
       <Todo
         key={todo.id}
         id={todo.id}
         completed={todo.completed}
         task={todo.task}
-        handleChange={toggleTaskCompleted}
-        handleDelete={deleteTask}
+        handleChange={props.toggleTaskCompleted}
+        handleDelete={props.deleteTask}
       />
     );
   });
+
+  const itemNoun = todosList.length > 1 ? "items" : "item";
+  const footerText = `${todosList.length} ${itemNoun}`;
+
   return (
     <div className="todo__list">
       {todosList}
 
-      {todos.length > 0 && (
+      {props.todos.length > 0 && (
         <div className="todo__footer">
-          <p>
-            {numOfActiveTask} {item} left
-          </p>
-          <button className="btn" onClick={deleteAllCompletedTask}>
+          <p>{footerText}</p>
+
+          <button className="btn" onClick={props.deleteAllCompletedTask}>
             Clear Completed
           </button>
         </div>

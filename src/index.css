@@ -90,6 +90,10 @@ img {
   color: var(--dark-grayish-blue);
 }
 
+.filter-btn:hover {
+  color: var(--very-dark-grayish-blue);
+}
+
 .container {
   padding-inline: 2em;
   max-width: 550px;
@@ -198,14 +202,6 @@ label {
   background: var(--bg-secondary-light);
   border-radius: 5px;
 }
-
-/* .todo-item {
-  color: var(--very-dark-grayish-blue);
-  display: flex;
-  align-items: center;
-  padding: 1.5em;
-  border-bottom: 1px solid var(--clr-primary-light-100);
-} */
 
 .todo-item .completed {
   text-decoration: line-through;

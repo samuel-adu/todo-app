@@ -1,7 +1,11 @@
 function FilterButton(props) {
   const filterNames = ["All", "Active", "Complete"];
   const filterButtons = filterNames.map((name) => (
-    <button key={name} className="btn" onClick={() => props.setFilter(name)}>
+    <button
+      key={name}
+      className="btn filter-btn"
+      onClick={() => props.setFilter(name)}
+    >
       {name}
     </button>
   ));

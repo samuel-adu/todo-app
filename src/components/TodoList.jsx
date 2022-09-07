@@ -24,8 +24,9 @@ function TodoList(props) {
     );
   });
 
-  const itemNoun = todosList.length > 1 ? "items" : "item";
-  const footerText = `${todosList.length} ${itemNoun}`;
+  const activeTask = props.todos.filter((todo) => !todo.completed);
+  const itemNoun = activeTask.length > 1 ? "items" : "item";
+  const footerText = `${activeTask.length} ${itemNoun} left`;
 
   return (
     <div className="todo__list">

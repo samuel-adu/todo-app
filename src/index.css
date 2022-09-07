@@ -62,7 +62,7 @@ body {
   font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   background-color: var(--very-light-grayish-blue);
   background-image: url("./images/bg-mobile-light.jpg");
@@ -82,11 +82,12 @@ img {
   background: none;
   border: 0;
   color: var(--dark-grayish-blue);
+  font-size: 1rem;
 }
 
 .filter-btn {
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--dark-grayish-blue);
 }
 
@@ -110,7 +111,7 @@ img {
 .logo {
   text-transform: uppercase;
   color: var(--bg-secondary-light);
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   letter-spacing: 5px;
 }
 
@@ -131,6 +132,7 @@ form {
   border-radius: 5px;
   width: 100%;
   color: var(--clr-primary-light-300);
+  font-size: 1rem;
 }
 
 .todo__input:focus {
@@ -142,7 +144,7 @@ form {
   grid-template-columns: 1em auto 1em;
   gap: 1em;
   line-height: 1.1;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 1em;
   border-bottom: 1px solid var(--clr-primary-light-700);
   align-items: center;

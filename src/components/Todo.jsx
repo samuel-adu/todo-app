@@ -2,7 +2,7 @@ import cross from "../images/icon-cross.svg";
 
 function Todo(props) {
   return (
-    <div className="todo-item">
+    <div className="todo-item form-control">
       <input
         type="checkbox"
         id={props.id}
@@ -13,8 +13,8 @@ function Todo(props) {
       <img
         src={cross}
         alt="cross"
-        width="15px"
-        height="15px"
+        width="10px"
+        height="10px"
         onClick={() => props.handleDelete(props.id)}
       />
     </div>

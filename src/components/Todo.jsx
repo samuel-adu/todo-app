@@ -13,8 +13,6 @@ function Todo(props) {
       <img
         src={cross}
         alt="cross"
-        width="10px"
-        height="10px"
         onClick={() => props.handleDelete(props.id)}
       />
     </div>

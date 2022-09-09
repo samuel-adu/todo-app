@@ -39,6 +39,10 @@ function App() {
     );
   }
 
+  function isPressed(name) {
+    return filter === name;
+  }
+
   return (
     <div className="container">
       <Header />
@@ -53,7 +57,9 @@ function App() {
         filter={filter}
       />
 
-      {todos.length > 0 && <FilterButton setFilter={setFilter} />}
+      {todos.length > 0 && (
+        <FilterButton setFilter={setFilter} isPressed={isPressed} />
+      )}
     </div>
   );
 }

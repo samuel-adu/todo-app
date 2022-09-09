@@ -5,6 +5,7 @@ function FilterButton(props) {
       key={name}
       className="btn filter-btn"
       onClick={() => props.setFilter(name)}
+      aria-pressed={props.isPressed(name)}
     >
       {name}
     </button>

@@ -65,8 +65,8 @@ img {
 }
 
 .container {
-  padding-inline: 2em;
-  max-width: 550px;
+  width: 90%;
+  max-width: 540px;
   margin: 0 auto;
 }
 
@@ -111,7 +111,7 @@ form {
 .form-control {
   display: grid;
   grid-template-columns: 1em auto 1em;
-  gap: 1em;
+  gap: 1.5em;
   line-height: 1.1;
   font-size: 1rem;
   padding: 1em;

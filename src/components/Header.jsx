@@ -1,20 +1,20 @@
 import { useContext } from "react";
 import moon from "../images/icon-moon.svg";
 import sun from "../images/icon-sun.svg";
-import { Context } from "../Context";
+import { ThemeContext } from "../Context";
 
 function Header() {
-  const { toggle, darkMode } = useContext(Context);
+  const { toggleTheme, theme } = useContext(ThemeContext);
 
   return (
     <header>
       <div className="navbar">
         <h1 className="logo">Todo</h1>
         <img
-          src={darkMode ? sun : moon}
+          src={theme === "dark" ? sun : moon}
           alt="mode icon"
           className="mode-icon"
-          onClick={toggle}
+          onClick={toggleTheme}
         />
       </div>
     </header>

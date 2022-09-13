@@ -13,8 +13,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -38,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/todo-app-built-using-reactjs-0MzFDka6jJ](https://www.frontendmentor.io/solutions/todo-app-built-using-reactjs-0MzFDka6jJ)
-- Live Site URL: [https://todo-app-lilac-three.vercel.app/](https://todo-app-lilac-three.vercel.app)
+- Live Site URL: [https://todo-app-lilac-three.vercel.app](https://todo-app-lilac-three.vercel.app)
 
 ## My process
 

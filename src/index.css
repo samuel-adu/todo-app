@@ -47,6 +47,40 @@ img {
   max-width: 100%;
 }
 
+.container {
+  width: 90%;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.logo {
+  text-transform: uppercase;
+  color: var(--clr-logo);
+  font-size: 2rem;
+  letter-spacing: 5px;
+}
+
+.mode-icon {
+  width: 30px;
+  height: 30px;
+}
+
+form {
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.circle {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 1px solid var(--clr-primary-500);
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+}
+
 .btn {
   display: inline-block;
   cursor: pointer;
@@ -71,12 +105,6 @@ img {
   color: var(--clr-accent);
 }
 
-.container {
-  width: 90%;
-  max-width: 540px;
-  margin: 0 auto;
-}
-
 .navbar {
   display: flex;
   padding-block: 2em;
@@ -84,26 +112,12 @@ img {
   justify-content: space-between;
 }
 
-.logo {
-  text-transform: uppercase;
-  color: var(--clr-logo);
-  font-size: 2rem;
-  letter-spacing: 5px;
-}
-
-.mode-icon {
-  width: 30px;
-  height: 30px;
-}
-
 /* || ======================================================= */
-form {
-  margin-bottom: 1em;
-}
 
 .todo__input {
   background-color: var(--bg-secondary);
   padding: 1em;
+  padding-left: 3.5em;
   border: 0;
   border-radius: 5px;
   width: 100%;
@@ -221,7 +235,8 @@ label {
     position: absolute;
     top: 0;
     width: 40%;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .filter-btn {

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import FilterButton from "./components/FilterButton";
 import todosData from "./todosData";
 import TodoList from "./components/TodoList";
+import TodoFooter from "./components/TodoFooter";
 
 function App() {
   const [todos, setTodos] = useState(todosData);
@@ -58,7 +58,12 @@ function App() {
       />
 
       {todos.length > 0 && (
-        <FilterButton setFilter={setFilter} isPressed={isPressed} />
+        <TodoFooter
+          todos={todos}
+          setFilter={setFilter}
+          isPressed={isPressed}
+          deleteAllCompletedTask={deleteAllCompletedTask}
+        />
       )}
     </div>
   );

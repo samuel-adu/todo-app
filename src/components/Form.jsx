@@ -23,6 +23,7 @@ function Form(props) {
         value={inputText}
         onChange={handleChange}
       />
+      <div className="circle"></div>
     </form>
   );
 }

@@ -10,7 +10,7 @@ function FilterButton(props) {
       {name}
     </button>
   ));
-  return <div className="filter-buttons">{filterButtons}</div>;
+  return <div>{filterButtons}</div>;
 }
 
 export default FilterButton;

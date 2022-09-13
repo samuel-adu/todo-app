@@ -14,6 +14,7 @@ function Todo(props) {
         src={cross}
         alt="cross"
         onClick={() => props.handleDelete(props.id)}
+        className="delete-btn"
       />
     </div>
   );

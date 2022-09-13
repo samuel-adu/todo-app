@@ -178,16 +178,16 @@ label {
 
 .todo__list {
   background: var(--bg-secondary);
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 
-.todo__footer {
+.todo__stats {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5em 1em;
   background-color: var(--bg-secondary);
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
   margin-bottom: 1em;
   color: var(--clr-primary-500);
 }
@@ -211,5 +211,20 @@ label {
   }
   body.dark {
     background-image: url("./images/bg-desktop-dark.jpg");
+  }
+
+  .todo__footer {
+    position: relative;
+  }
+
+  .filter-buttons {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    left: 25%;
+  }
+
+  .filter-btn {
+    padding: 0.5em;
   }
 }

@@ -10,11 +10,8 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -36,12 +33,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop screenshot of app](./screenshot.png)
+![Desktop Screenshot](./screenshot.png)
 
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/todo-app-built-using-reactjs-0MzFDka6jJ](https://www.frontendmentor.io/solutions/todo-app-built-using-reactjs-0MzFDka6jJ)
-- Live Site URL: [https://todo-app-lilac-three.vercel.app/](https://todo-app-lilac-three.vercel.app/)
+- Live Site URL: [https://todo-app-lilac-three.vercel.app/](https://todo-app-lilac-three.vercel.app)
 
 ## My process
 
@@ -60,6 +57,4 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@theadusamuel](https://www.frontendmentor.io/profile/theadusamuel)

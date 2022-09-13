@@ -71,13 +71,13 @@ form {
 }
 
 .circle {
-  width: 1.5em;
-  height: 1.5em;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 1px solid var(--clr-primary-500);
   position: absolute;
   top: 50%;
-  left: 1em;
+  left: 1.125em;
   transform: translateY(-50%);
 }
 
@@ -97,6 +97,10 @@ form {
   color: var(--clr-primary-500);
 }
 
+.todo__stats .btn {
+  padding-inline: 0;
+}
+
 .filter-btn:hover {
   color: var(--clr-primary-700);
 }
@@ -107,7 +111,7 @@ form {
 
 .navbar {
   display: flex;
-  padding-block: 2em;
+  padding-block: 1em;
   align-items: center;
   justify-content: space-between;
 }
@@ -117,12 +121,17 @@ form {
 .todo__input {
   background-color: var(--bg-secondary);
   padding: 1em;
-  padding-left: 3.5em;
+  padding-left: 2.925em;
   border: 0;
   border-radius: 5px;
   width: 100%;
   color: var(--clr-primary-700);
   font-size: 1rem;
+  line-height: 1.1;
+}
+
+::placeholder {
+  font-size: 0.75rem;
 }
 
 .todo__input:focus {
@@ -134,8 +143,8 @@ form {
   grid-template-columns: 1em auto 1em;
   gap: 1.5em;
   line-height: 1.1;
-  font-size: 1rem;
-  padding: 1em;
+  font-size: 0.75rem;
+  padding: 1.5em;
   border-bottom: 1px solid var(--clr-primary-400);
   align-items: center;
   color: var(--clr-primary-700);
@@ -147,8 +156,8 @@ input[type="checkbox"] {
   margin: 0;
   font: inherit;
   color: currentColor;
-  width: 1.5em;
-  height: 1.5em;
+  width: 18px;
+  height: 18px;
   border: 0.5px solid var(--clr-primary-500);
   border-radius: 50%;
   display: grid;
@@ -158,8 +167,8 @@ input[type="checkbox"] {
 
 input[type="checkbox"]::before {
   content: url(./images/icon-check.svg);
-  width: 1.5em;
-  height: 1.5em;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
@@ -179,7 +188,6 @@ input[type="checkbox"]:checked + label {
 
 input[type="checkbox"]:focus {
   outline: 1px solid var(--clr-accent);
-  outline-offset: max(2px, 1px);
 }
 
 input[type="checkbox"]:hover {
@@ -199,7 +207,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 1em;
+  padding: 0.75em 1.5em;
   background-color: var(--bg-secondary);
   border-radius: 0 0 5px 5px;
   margin-bottom: 1em;
@@ -213,7 +221,7 @@ label {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.75em;
   border-radius: 5px;
 }
 
@@ -223,8 +231,29 @@ label {
   body {
     background-image: url("./images/bg-desktop-light.jpg");
   }
+
   body.dark {
     background-image: url("./images/bg-desktop-dark.jpg");
+  }
+
+  .navbar {
+    padding-block: 2em;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  form {
+    margin-bottom: 2em;
+  }
+
+  .todo__input {
+    font-size: 1.25rem;
+  }
+
+  .form-control {
+    font-size: 1rem;
   }
 
   .todo__footer {
